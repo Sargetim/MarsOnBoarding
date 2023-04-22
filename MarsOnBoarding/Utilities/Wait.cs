@@ -17,44 +17,38 @@ namespace MarsOnBoarding.Utilities
 
             if (locatorType == "XPath")
             {
-                wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(locatorValue)));
-            }
-            if (locatorType == "Id")
-            {
-                wait.Until(ExpectedConditions.ElementToBeClickable(By.Id(locatorValue)));
-            }
-            if (locatorType == "CssSelector")
-            {
-                wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector(locatorValue)));
-            }
-            if (locatorType == "Name")
-            {
-                wait.Until(ExpectedConditions.ElementToBeClickable(By.Name(locatorValue)));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath(locatorValue)));
             }
 
+            if (locatorType == "Id")
+            {
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id(locatorValue)));
+            }
+
+            if (locatorType == "CssSelector")
+            {
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.CssSelector(locatorValue)));
+            }
         }
+
         public static void WaitForELementToExist(IWebDriver driver, string locatorType, string locatorValue, int seconds)
         {
             var wait = new WebDriverWait(driver, new TimeSpan(0, 0, seconds));
 
             if (locatorType == "XPath")
             {
-                wait.Until(ExpectedConditions.ElementExists(By.XPath(locatorValue)));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath(locatorValue)));
             }
+
             if (locatorType == "Id")
             {
-                wait.Until(ExpectedConditions.ElementExists(By.Id(locatorValue)));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id(locatorValue)));
             }
+
             if (locatorType == "CssSelector")
             {
-                wait.Until(ExpectedConditions.ElementExists(By.CssSelector(locatorValue)));
-            }
-            if (locatorType == "Name")
-            {
-                wait.Until(ExpectedConditions.ElementExists(By.Name(locatorValue)));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.CssSelector(locatorValue)));
             }
         }
     }
 }
-
-    

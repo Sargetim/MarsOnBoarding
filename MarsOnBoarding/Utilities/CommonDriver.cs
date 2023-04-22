@@ -1,4 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using MarsOnBoarding.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,20 +10,16 @@ using System.Threading.Tasks;
 
 namespace MarsOnBoarding.Utilities
 {
-    public class CommonDriver : Wait
+    public class CommonDriver 
     {
-        public IWebDriver driver;
 
-        public string alertWindow(IWebDriver driver)
-        {
 
-            WaitForELementToExist(driver, "CssSelector", "[class=\"ns-box ns-growl ns-effect-jelly ns-type-success ns-show\"]", 3);
+        public IWebDriver driver = new ChromeDriver();
+        
 
-            IWebElement confirmationAlert = driver.FindElement(By.CssSelector("[class=\"ns-box ns-growl ns-effect-jelly ns-type-success ns-show\"]"));
-            return confirmationAlert.Text;
-
-        }
-
+        
 
     }
+
+       
 }

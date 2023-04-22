@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "zBaeKWdDExTquIcX8u29Ff5lGLNbZ/bEGrlQSgVndIy5Gmqz+QJLzfIWxlcccupBXf8YieEdMgGgqY/PJDdtdw==",
+  "dgSpecHash": "ZuZXXdZDrlWFDP+6t9B7bs1iAwoWScKvQNREMy441P+7Oi5A0kEJOcW2jcRNK06stHK6eq8EYF6hWS9t9oRZMQ==",
   "success": true,
   "projectFilePath": "E:\\Mars\\MarsOnBoarding\\MarsOnBoarding.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\timal\\.nuget\\packages\\bodi\\1.5.0\\bodi.1.5.0.nupkg.sha512",
-    "C:\\Users\\timal\\.nuget\\packages\\fluentassertions\\6.10.0\\fluentassertions.6.10.0.nupkg.sha512",
+    "C:\\Users\\timal\\.nuget\\packages\\fluentassertions\\6.11.0\\fluentassertions.6.11.0.nupkg.sha512",
     "C:\\Users\\timal\\.nuget\\packages\\gherkin\\19.0.3\\gherkin.19.0.3.nupkg.sha512",
     "C:\\Users\\timal\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",
     "C:\\Users\\timal\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\1.0.3\\microsoft.dotnet.platformabstractions.1.0.3.nupkg.sha512",

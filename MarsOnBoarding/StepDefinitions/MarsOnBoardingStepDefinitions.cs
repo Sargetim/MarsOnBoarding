@@ -9,62 +9,74 @@ using TechTalk.SpecFlow;
 namespace MarsOnBoarding.StepDefinitions
 {
     [Binding]
-    public class MarsOnBoardingStepDefinitions 
+    public class MarsOnBoardingStepDefinitions : CommonDriver
     {
-        IWebDriver driver = new ChromeDriver();
-        LoginPage loginPageObj = new LoginPage();
-        LanguagePage languagePageObj = new LanguagePage();
-        CommonDriver commonDriverObj = new CommonDriver();
+
+        LoginPage loginPageObj;
+        LanguagePage languagePageObj;
+        
+
+        public MarsOnBoardingStepDefinitions()
+        {
+            loginPageObj = new LoginPage(driver);
+            languagePageObj = new LanguagePage(driver);
+        }
 
         [Given(@"I launch and log into Mars portal successfully")]
         public void GivenILaunchAndLogIntoMarsPortalSuccessfully()
         {
-            loginPageObj.LoginActions(driver);
+            loginPageObj.LoginActions();
         }
 
 
         [When(@"I add new language")]
         public void WhenIAddNewLanguage()
         {
-            languagePageObj.AddLanguages(driver);
+            languagePageObj.AddLanguages();
         }
 
         [Then(@"The new language should be added successfully")]
         public void ThenTheNewLanguageShouldBeAddedSuccessfully()
         {
-            string newLanguage = commonDriverObj.alertWindow(driver);
+            string newLanguage = languagePageObj.alertWindow();
             Assert.That(newLanguage == "English has been added to your languages", "Failed to add language");
-            driver.Quit();
+            
         }
 
         [When(@"I edit the added language")]
         public void WhenIEditTheAddedLanguage()
         {
-            languagePageObj.EditLanguages(driver);
+            languagePageObj.EditLanguages();
         }
 
         [Then(@"The edited language should be added successfully")]
         public void ThenTheEditedLanguageShouldBeAddedSuccessfully()
         {
-            string editLanguage = commonDriverObj.alertWindow(driver);
+            string editLanguage = languagePageObj.alertWindow();
             Assert.That(editLanguage == "Nepali has been updated to your languages", "Failed to add language");
-            driver.Quit();
+            
         }
 
         [When(@"I delete the added language")]
         public void WhenIDeleteTheAddedLanguage()
         {
-            languagePageObj.DeleteLanguage(driver);
+            languagePageObj.DeleteLanguage();
         }
 
         [Then(@"The added language should be deleted successfully")]
         public void ThenTheAddedLanguageShouldBeDeletedSuccessfully()
         {
-            string deleteLanguage = commonDriverObj.alertWindow(driver);
+            string deleteLanguage = languagePageObj.alertWindow();
             Assert.That(deleteLanguage == "Nepali has been deleted from your languages", "Failed to add language");
-            driver.Quit();
+            
         }
 
+        [AfterScenario]
+
+        public void Teardown()
+        {
+            driver.Quit();
+        }
 
 
     }
